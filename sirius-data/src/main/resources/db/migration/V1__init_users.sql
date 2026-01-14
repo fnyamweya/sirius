@@ -22,4 +22,4 @@ CREATE INDEX idx_email ON users(email);
 -- Insert default admin user (password: admin123 - should be changed in production)
 -- Password is BCrypt hash of 'admin123'
 INSERT INTO users (username, email, password, first_name, last_name, enabled)
-VALUES ('admin', 'admin@sirius.com', '$2a$10$X5V5lQj5N5Z5Z5Z5Z5Z5ZuQqQqQqQqQqQqQqQqQqQqQqQqQqQqQq', 'Admin', 'User', true);
+VALUES ('admin', 'admin@sirius.com', '$2b$12$XhfHz9MUe2jDO.IHgrVLguNtUoLCIdnSp4jUZp7iHQefoQfQbIX/S', 'Admin', 'User', true);
