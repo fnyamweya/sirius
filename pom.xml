@@ -21,12 +21,14 @@
     <description>Enterprise Treasury Management Platform</description>
 
     <properties>
-        <java.version>17</java.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>3.2.1</spring-boot.version>
         <jjwt.version>0.12.3</jjwt.version>
+        <springdoc.version>2.3.0</springdoc.version>
+        <testcontainers.version>1.19.8</testcontainers.version>
     </properties>
 
     <modules>
@@ -34,6 +36,8 @@
         <module>sirius-data</module>
         <module>sirius-api</module>
         <module>sirius-infra</module>
+        <module>sirius-jobs</module>
+        <module>sirius-test</module>
     </modules>
 
     <dependencyManagement>
@@ -54,6 +58,16 @@
                 <artifactId>sirius-infra</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.sirius</groupId>
+                <artifactId>sirius-jobs</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sirius</groupId>
+                <artifactId>sirius-test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!-- JWT -->
             <dependency>
@@ -70,6 +84,30 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-jackson</artifactId>
                 <version>${jjwt.version}</version>
+            </dependency>
+
+            <!-- OpenAPI (annotations + /v3/api-docs) -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+
+            <!-- Testcontainers (managed here; used by sirius-test and module tests) -->
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${testcontainers.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers</artifactId>
+                <version>${testcontainers.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${testcontainers.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
