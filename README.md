@@ -16,7 +16,7 @@ sirius/
 
 ## 🚀 Technology Stack
 
-- **Java 21** - Latest LTS version with modern language features
+- **Java 17** - LTS version with modern language features
 - **Spring Boot 3.2.1** - Enterprise application framework
 - **Spring Security** - Authentication and authorization with JWT
 - **PostgreSQL** - Robust relational database
@@ -27,7 +27,7 @@ sirius/
 
 ## 📋 Prerequisites
 
-- Java 21 or higher
+- Java 17 or higher
 - Maven 3.8+
 - Docker and Docker Compose (for local development)
 

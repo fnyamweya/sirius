@@ -4,10 +4,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.stream.Consumer;
-import org.springframework.data.redis.connection.stream.ObjectRecord;
+import org.springframework.data.redis.connection.stream.MapRecord;
 import org.springframework.data.redis.connection.stream.ReadOffset;
 import org.springframework.data.redis.connection.stream.StreamOffset;
-import org.springframework.data.redis.stream.StreamListener;
 import org.springframework.data.redis.stream.StreamMessageListenerContainer;
 import org.springframework.data.redis.stream.Subscription;
 
@@ -23,10 +22,10 @@ public class RedisStreamConfig {
     public static final String CONSUMER_GROUP = "sirius-processors";
     
     @Bean
-    public StreamMessageListenerContainer<String, ObjectRecord<String, String>> streamMessageListenerContainer(
+    public StreamMessageListenerContainer<String, MapRecord<String, String, String>> streamMessageListenerContainer(
             RedisConnectionFactory connectionFactory) {
         
-        StreamMessageListenerContainer.StreamMessageListenerContainerOptions<String, ObjectRecord<String, String>> options = 
+        StreamMessageListenerContainer.StreamMessageListenerContainerOptions<String, MapRecord<String, String, String>> options = 
             StreamMessageListenerContainer.StreamMessageListenerContainerOptions
                 .builder()
                 .pollTimeout(Duration.ofMillis(100))
@@ -37,7 +36,7 @@ public class RedisStreamConfig {
     
     // Example stream listener registration (can be extended as needed)
     // @Bean
-    // public Subscription subscription(StreamMessageListenerContainer<String, ObjectRecord<String, String>> container) {
+    // public Subscription subscription(StreamMessageListenerContainer<String, MapRecord<String, String, String>> container) {
     //     return container.receive(
     //         Consumer.from(CONSUMER_GROUP, "instance-1"),
     //         StreamOffset.create(TREASURY_EVENTS_STREAM, ReadOffset.lastConsumed()),
