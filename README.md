@@ -1,6 +1,6 @@
 # Sirius - Enterprise Treasury Platform
 
-A production-grade, modular Enterprise Treasury Management platform built with Java 21, Spring Boot 3, PostgreSQL, and Redis.
+A production-grade, modular Enterprise Treasury Management platform built with Java 17, Spring Boot 3, PostgreSQL, and Redis.
 
 ## 🏗️ Architecture
 
